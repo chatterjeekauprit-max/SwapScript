@@ -1,0 +1,8 @@
+# Context names and metric names are hashed with FNV-1a by compiler.py.
+context daylight params HEAD_DAYLIGHT
+context night params HEAD_NIGHT
+initial daylight
+
+# Hysteresis is expressed with separate thresholds for each direction.
+transition daylight -> night when ambient_lux <= 20 hold 50 ms
+transition night -> daylight when ambient_lux >= 30 hold 100 ms
